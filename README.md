@@ -127,6 +127,7 @@ Being honest about what this is not:
 
 ## Install
 
+<!-- readme-check: skip=clones-this-repo-into-itself -->
 ```console
 $ git clone https://github.com/Wasserpuncher/btreedb
 $ cd btreedb
