@@ -28,6 +28,7 @@ Page reads are the honest number here. Wall-clock time depends on how fast this
 laptop is; page reads are what the structure actually costs, and they'd be the
 same on any machine. Reproduce it yourself:
 
+<!-- readme-check: timeout=900 -->
 ```console
 $ python -m btreedb bench
       keys  height  page reads/lookup      lookup     full scan   speedup

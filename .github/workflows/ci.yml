@@ -20,3 +20,12 @@ jobs:
       - run: python -m pytest -q
       - name: lookup cost must stay flat
         run: python -m btreedb bench --max 100000
+
+      # The console blocks on the front page are run, and the numbers in them
+      # are compared against what the commands actually print. A README that
+      # quietly stops being true fails the build here.
+      - name: The README must still tell the truth
+        if: matrix.python == '3.12'
+        run: |
+          pip install git+https://github.com/Wasserpuncher/readme-check
+          readme-check README.md --no-color
