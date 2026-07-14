@@ -32,11 +32,17 @@ same on any machine. Reproduce it yourself:
 $ python -m btreedb bench
       keys  height  page reads/lookup      lookup     full scan   speedup
 ----------------------------------------------------------------------------
-     1,000       2                2.0       51 µs        0.7 ms       13×
-    10,000       2                2.0      185 µs        6.6 ms       36×
-   100,000       3                3.0      157 µs      100.3 ms      637×
- 1,000,000       3                3.0      287 µs      885.1 ms     3083×
+     1,000       2                2.0      ~51 µs       ~0.7 ms      ~13×
+    10,000       2                2.0     ~185 µs       ~6.6 ms      ~36×
+   100,000       3                3.0     ~157 µs     ~100.3 ms     ~637×
+ 1,000,000       3                3.0     ~287 µs     ~885.1 ms    ~3083×
 ```
+
+The `~` is not modesty, it is the point. The timings move with the machine — on a
+warmer laptop the first row measures 61 µs, not 51. **The page-read column does
+not move at all**, and it is the only column making a claim: two reads at a
+thousand keys, three at a million. That is what a B-tree promises, and it is the
+number that has to be right.
 
 ## Use it
 
